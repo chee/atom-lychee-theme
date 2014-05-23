@@ -1,0 +1,11 @@
+{
+  "description": "A port of chee's emacs theme",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "license": "MIT",
+  "name": "lychee-theme",
+  "theme": "syntax",
+  "repository": "https://github.com/chee/atom-lychee-theme",
+  "version": "1.0.0"
+}
