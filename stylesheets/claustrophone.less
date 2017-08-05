@@ -5,11 +5,32 @@
   color: @syntax-text-color;
 }
 
-.editor {
+atom-text-editor {
   text-rendering: optimizeLegibility;
 
   background-color: @syntax-background-color;
   color: @syntax-text-color;
+
+  .cursor {
+    background: @syntax-cursor-color;
+    color: @syntax-cursor-color;
+    border: none;
+    border-radius: 0.16em;
+  }
+
+  &[mini] .cursor {
+    height: 24px!important;
+    width: 1px!important;
+  }
+
+  &.vim-mode-plus.insert-mode .cursor {
+    width: 1px!important;
+  }
+
+  .bracket-matcher {
+    background: @periwinkle;
+    color: white;
+  }
 
   .cursor-line {
     background: @syntax-selection-color;
@@ -327,24 +348,4 @@
 
 .editor.mini .scroll-view {
   padding-left: 1px;
-}
-
-atom-text-editor {
-  & .cursor {
-    background @syntax-cursor-color;
-    color: @syntax-cursor-color;
-    &.blink-off {
-      opacity: 0.2;
-      visibility: visible;
-    }
-  }
-
-  &.vim-mode-plus.visual-mode .cursor,
-  &.vim-mode-plus.operator-pending-mode .cursor,
-  &.vim-mode-plus.normal-mode .cursor {
-    width: 1px;
-    &.blink-off {
-      opacity: 1;
-    }
-  }
 }
