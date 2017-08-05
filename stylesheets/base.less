@@ -6,8 +6,14 @@
 }
 
 .editor {
+  text-rendering: optimizeLegibility;
+
   background-color: @syntax-background-color;
   color: @syntax-text-color;
+
+  .cursor-line {
+    background: @syntax-selection-color;
+  }
 
   .invisible-character {
     opacity: 0.5;
@@ -51,25 +57,8 @@
     color: @syntax-text-color;
   }
 
-  .cursor {
-    background: @syntax-cursor-color;
-    color: @syntax-cursor-color;
-    width: 1px;
-    &.blink-off {
-      opacity: 0.2;
-      visibility: visible;
-    }
-  }
-
-  &.is-focused {
-    border-top: 2px solid deeppink;
-    .emacs-cursor .cursor {
-      background-color: @syntax-cursor-color;
-    }
-  }
-
   .selection .region {
-    background-color: @syntax-selection-color!important;
+    background-color: darken(@syntax-selection-color, 5%)!important;
   }
 }
 
@@ -85,11 +74,12 @@
 // I am a comment
 .comment {
   color: @light-gray;
+  font-style: italic;
 }
 
 .entity {
   &.name.type {
-    color: @blue;
+    color: @pool;
     text-decoration: underline;
   }
 
@@ -99,10 +89,10 @@
 }
 
 .keyword {
-  color: @purple;
+  color: @deep-purple;
 
   &.control {
-    color: @purple;
+    color: @deep-purple;
   }
 
   &.operator {
@@ -110,11 +100,11 @@
   }
 
   &.other.special-method {
-    color: @blue;
+    color: @pool;
   }
 
   &.other.unit {
-    color: @purple;
+    color: @deep-purple;
     size: 22px;
   }
 }
@@ -124,19 +114,18 @@
 }
 
 .constant {
-  color: #333;
+  color: @dark-gray;
 
   &.character.escape {
     color: @pink;
   }
 
   &.numeric {
-    color: @blue;
-    size: 22px;
+    color: @pool;
   }
 
   &.other.color {
-    color: @cyan;
+    color: @sky;
   }
 
   &.other.symbol {
@@ -170,7 +159,7 @@
   background: fade(@light-green, 50%);
 
   &.regexp {
-    color: @cyan;
+    color: @sky;
 
     .source.ruby.embedded {
       color: @orange;
@@ -197,7 +186,7 @@
 
     &.heading,
     &.identity {
-      color: @blue;
+      color: @pool;
     }
 
     &.bold {
@@ -227,10 +216,10 @@
   }
 
   &.function  {
-    color: @cyan;
+    color: @sky;
 
     &.any-method {
-      color: @blue;
+      color: @pool;
     }
   }
 }
@@ -241,11 +230,12 @@
   }
 
   &.name.class, &.name.type.class {
-    color: @dark-mustard;
+    color: @desaturated-pink;
+    font-weight: bold;
   }
 
   &.name.section {
-    color: @blue;
+    color: @pool;
   }
 
   &.name.tag {
@@ -256,7 +246,7 @@
     color: @desaturated-pink;
 
     &.id {
-      color: @blue;
+      color: @pool;
     }
   }
 }
@@ -271,7 +261,7 @@
   }
 
   &.require {
-    color: @blue;
+    color: @pool;
   }
 
   &.selector {
@@ -291,7 +281,7 @@
 .markup {
   &.bold {
     color: @orange;
-    font-style: bold;
+    font-weight: bold;
   }
 
   &.changed {
@@ -308,7 +298,7 @@
   }
 
   &.heading .punctuation.definition.heading {
-    color: @blue;
+    color: @pool;
   }
 
   &.inserted {
@@ -337,4 +327,24 @@
 
 .editor.mini .scroll-view {
   padding-left: 1px;
+}
+
+atom-text-editor {
+  & .cursor {
+    background @syntax-cursor-color;
+    color: @syntax-cursor-color;
+    &.blink-off {
+      opacity: 0.2;
+      visibility: visible;
+    }
+  }
+
+  &.vim-mode-plus.visual-mode .cursor,
+  &.vim-mode-plus.operator-pending-mode .cursor,
+  &.vim-mode-plus.normal-mode .cursor {
+    width: 1px;
+    &.blink-off {
+      opacity: 1;
+    }
+  }
 }
