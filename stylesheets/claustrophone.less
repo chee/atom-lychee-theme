@@ -148,12 +148,20 @@ atom-text-editor {
     color: @red;
   }
 
+  &.syntax--boolean {
+    text-decoration: underline;
+  }
+
   &.syntax--character.syntax--escape {
     color: @pink;
   }
 
   &.syntax--numeric {
     color: @pool;
+  }
+
+  &.syntax--other {
+    color: @pink;
   }
 
   &.syntax--other.syntax--color {
