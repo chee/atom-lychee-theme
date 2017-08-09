@@ -29,11 +29,13 @@ atom-text-editor {
   }
 
   .bracket-matcher {
-    background: @periwinkle;
+    .region {
+      background: darken(@periwinkle, 4%);
+    }
   }
 
   .cursor-line {
-    background: @syntax-selection-color;
+    background: fade(darken(@syntax-selection-color, 10%), 90%);
   }
 
   .invisible-character {
