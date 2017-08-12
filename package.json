@@ -4,6 +4,7 @@
     "atom": ">0.50.0"
   },
   "license": "MIT",
+  "main": "./lib/lychee.js",
   "name": "lychee-syntax",
   "theme": "syntax",
   "repository": "https://github.com/chee/atom-lychee-theme",
