@@ -85,12 +85,12 @@ atom-text-editor {
   }
 }
 
-.editor .search-results .marker .region {
+.editor .search-results .syntax--marker .region {
   background-color: transparent;
   border: 1px solid @syntax-result-marker-color;
 }
 
-.editor .search-results .marker.current-result .region {
+.editor .search-results .syntax--marker.current-result .region {
   border: 1px solid @syntax-result-marker-color-selected;
 }
 
@@ -247,7 +247,7 @@ atom-text-editor {
     }
 
     &.syntax--bold {
-      color: @dark-mustard;
+      color: @blood-mustard;
       font-style: bold;
     }
 
@@ -265,7 +265,7 @@ atom-text-editor {
 
 .syntax--support {
   &.syntax--class {
-    color: @dark-mustard;
+    color: @blood-mustard;
   }
 
   &.syntax--property-name {
@@ -315,7 +315,7 @@ atom-text-editor {
 
 .syntax--meta {
   &.syntax--class {
-    color: @dark-mustard;
+    color: @blood-mustard;
   }
 
   &.syntax--link {
@@ -382,11 +382,35 @@ atom-text-editor {
 
 .syntax--source.syntax--gfm .syntax--markup {
   -webkit-font-smoothing: auto;
-  &.heading {
+  &.syntax--heading {
     color: @sky;
   }
 }
 
 .editor.mini .scroll-view {
   padding-left: 1px;
+}
+
+// Activated through settings
+[data-lychee-syntax-mode-indicator-shown="true"] {
+  atom-text-editor {
+    border-top: 2px solid @red;
+    border-bottom: 2px solid @red;
+  }
+
+  .insert-mode {
+    border-color: @red;
+  }
+
+  .normal-mode {
+    border-color: @sky;
+  }
+
+  .visual-mode {
+    border-color: @orange;
+  }
+
+  .spacecase {
+    border-color: @seabottle;
+  }
 }
