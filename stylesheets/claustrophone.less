@@ -229,6 +229,9 @@ atom-text-editor {
 }
 
 .syntax--punctuation {
+
+  color: darken(@syntax-text-color, 5%);
+
   &.syntax--definition {
     &.syntax--comment {
       color: @light-gray;
@@ -247,7 +250,7 @@ atom-text-editor {
     }
 
     &.syntax--bold {
-      color: @deep-pink;
+      color: @green;
       font-style: bold;
     }
 
@@ -264,10 +267,6 @@ atom-text-editor {
 }
 
 .syntax--support {
-  &.syntax--class {
-    color: @deep-pink;
-  }
-
   &.syntax--property-name {
     color: @orange;
   }
@@ -314,10 +313,6 @@ atom-text-editor {
 }
 
 .syntax--meta {
-  &.syntax--class {
-    color: @deep-pink;
-  }
-
   &.syntax--link {
     color: @orange;
   }
@@ -333,6 +328,10 @@ atom-text-editor {
   &.syntax--separator {
     background-color: @gray;
     color: @syntax-text-color;
+  }
+
+  &.syntax--brace {
+    color: darken(@syntax-text-color, 5%)
   }
 }
 
@@ -407,7 +406,7 @@ atom-text-editor {
   }
 
   .visual-mode {
-    border-color: @deep-pink;
+    border-color: @eebb33;
   }
 
   .spacecase {
